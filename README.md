@@ -17,11 +17,11 @@ Please see our project reference guide as well: https://docs.google.com/spreadsh
 
 Step 2 – Transform
 
-From the movies_metadata we eliminated all unnecessary data from our dataset. The movie_id was necessary to bring in ratings data, but only in the movies_metadata did the id have 0’s preceding all values. We eliminated the preceding 0’s in order to match the id in the ratings dataset. 
+From the movies_metadata we eliminated all unnecessary data from our dataset. We checked for duplicates within the movie_id as it was going to be used as our primary key and kept only the first instance of duplicates. The movie_id was necessary to bring in ratings data, but only in the movies_metadata did the id have 0’s preceding all values. We eliminated the preceding 0’s in order to match the id in the ratings dataset.
 
 The main movies_metadata also had the production companies for each movie stored with their own production id’s in a list, with many movies having multiple production companies. We removed production company id and stored each value as a list so we later calculate total earned revenue.
 
-Lastly, we created a clean dataframe that had total worldwide revenue by franchise. 
+Our franchise data combined information from the movies_metadata as well as a table pulled from a movie data site. Our goal was to match movie titles with their respective franchise name and determine what percentage of total franchise revenue each movie brought in. To do this we first removed any movies that did not belong to a collection. We then searched the "collection" column to see if it contained the "franchise" name and stored the index of the matches. We also had to transform the currency formatting of franchise revenue to be able to calculate the performance of each movie. 
 
 
 Step 3 – Load
